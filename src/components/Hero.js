@@ -5,7 +5,7 @@ import illustration from "../images/background1.png";
 export default class Hero extends Component {
   render() {
     return (
-      <div className="hero-section">
+      <div className="hero-section padding">
         <div className="container">
           <div className="hero-sec-container">
             <div className="hero-text-sec">
@@ -18,7 +18,7 @@ export default class Hero extends Component {
                 can search APIs of various categories with their details and can
                 use in your next project...
               </p>
-              <div class="btn-sec">
+              <div className="btn-sec">
                 <button className="btn">Add API</button>
                 <button className="btn">Search API</button>
               </div>

@@ -1,7 +1,6 @@
 .hero-section {
   background-color: rgb(237, 240, 243);
   .hero-sec-container {
-    padding: 40px 0px;
     display: flex;
     width: 1280px;
     justify-content: space-between;
@@ -30,8 +29,8 @@
           border-radius: 4px;
           padding: 8px 32px;
           color: rgb(253, 253, 253);
-          font-size: 16px;
-          font-weight: 600;
+          font-size: 18px;
+          font-weight: 400;
           cursor: pointer;
         }
       }

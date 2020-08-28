@@ -1,0 +1,19 @@
+.loader-page {
+  background-color: rgb(7, 8, 19);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    color: #00bfff;
+    margin-top: 18px;
+    font-size: 20px;
+    font-style: italic;
+    word-spacing: 1.8;
+    font-weight: 500;
+  }
+}
