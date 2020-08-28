@@ -1,4 +1,0 @@
-[build]
-base = "apisinfo.xyz/"
-publish = "apisinfo.xyz/build/"
-command = "npm run build"

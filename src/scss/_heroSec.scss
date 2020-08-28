@@ -1,0 +1,49 @@
+.hero-section {
+  background-color: rgb(237, 240, 243);
+  .hero-sec-container {
+    padding: 40px 0px;
+    display: flex;
+    width: 1280px;
+    justify-content: space-between;
+    .hero-text-sec {
+      width: 520px;
+      h2 {
+        font-size: 48px;
+        font-weight: 700;
+        span {
+          color: brown;
+        }
+      }
+      p {
+        margin-top: 18px;
+        font-size: 18px;
+        font-style: italic;
+        color: rgb(8, 66, 68);
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      .btn-sec {
+        margin-top: 24px;
+        .btn {
+          background-color: brown;
+          margin-right: 12px;
+          border-radius: 4px;
+          padding: 8px 32px;
+          color: rgb(253, 253, 253);
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+      .btn:hover {
+        background-color: rgb(190, 51, 51);
+      }
+    }
+    .hero-img-sec {
+      //   border: 1px solid black;
+      img {
+        width: 600px;
+      }
+    }
+  }
+}

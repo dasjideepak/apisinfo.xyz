@@ -1,4 +1,31 @@
 .header {
-  background-color: rgb(179, 179, 179);
-  padding: 12px 0;
+  // background-color: rgb(246, 245, 248);
+  .logo {
+    width: 180px;
+  }
+}
+
+.menu-btn {
+  background-color: brown;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+  border-radius: 8px;
+  color: rgb(253, 253, 253);
+  margin-right: 4px;
+}
+
+.menu-btn:hover {
+  background-color: rgb(190, 51, 51);
+}
+
+.menu-icon {
+  font-size: 22px;
+  padding-right: 4px;
+}
+
+.menu-text {
+  font-size: 16px;
+  font-weight: 600;
 }
