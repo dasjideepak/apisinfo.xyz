@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import uuid from "react-uuid";
-import Loader from "react-loader-spinner";
+import PageLoader from "./Loader";
+import Res from "./Res";
 
 export default class category extends Component {
   constructor() {
     super();
     this.state = {
       data: null,
+      message: null,
+      res: null,
     };
   }
 
@@ -14,42 +17,61 @@ export default class category extends Component {
     fetch("https://api.publicapis.org/categories")
       .then((response) => response.json())
       .then((response) => {
-        // console.log(response);
-        this.setState({ data: response });
+        this.setState({ data: response }, () =>
+          this.initialRes(this.state.data[0])
+        );
       })
-      .catch((err) => console.log(err));
+      .catch((err) => this.setState({ message: err.message }));
   }
 
+  initialRes = (initialValue) => {
+    fetch(
+      "https://cors-anywhere.herokuapp.com/" +
+        `https://api.publicapis.org//entries?category=${initialValue.toLowerCase()}&https=true`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ res: response.entries });
+      });
+  };
+
+  handleClick = (e) => {
+    e.preventDefault();
+    this.setState({ res: null });
+    let fetchData = e.target.dataset.keyword;
+    console.log(fetchData);
+    fetch(
+      "https://cors-anywhere.herokuapp.com/" +
+        `https://api.publicapis.org//entries?category=${fetchData.toLowerCase()}&https=true`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        this.setState({ res: response.entries });
+      });
+  };
+
   render() {
-    if (!this.state.data) {
-      return (
-        <div className="loader-page">
-          <div className="flex-column center">
-            <Loader type="Circles" color="#00BFFF" height={80} width={80} />
-            <h3>Loading APIs...</h3>
-          </div>
-        </div>
-      );
-    }
+    const { data, message, res } = this.state;
+    if (message && !data) return <h2>{message}</h2>;
+    if (!data) return <PageLoader />;
     return (
       <div className="categories-section padding">
-        <div className="container">
+        <div className="container categories-flex">
           <div className="categories-table">
-            {this.state.data.map((data) => {
+            {data.map((data) => {
               return (
                 <ul key={uuid()}>
                   <li>
-                    <a
-                      href={`https://api.publicapis.org//entries?category=${data.toLowerCase()}&https=true`}
-                    >
+                    <button data-keyword={data} onClick={this.handleClick}>
                       {data}
-                    </a>
+                    </button>
                   </li>
                 </ul>
               );
             })}
           </div>
-          <div className="render-view"></div>
+          <Res res={res} />
         </div>
       </div>
     );

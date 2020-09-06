@@ -20,24 +20,24 @@ export default class Random extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <div className="random-api-section padding">
         <div className="container">
           <h4>Random API</h4>
-          <div className="api-detail">
-            {/* <h3>
-              {this.state.data.map((data) => {
-                return <li>{data}</li>;
-              })}
-            </h3> */}
-            <p>Description: </p>
-            <h5>Auth: </h5>
-            <h5>Category: </h5>
-            <h5>Cors: </h5>
-            <h5>Https: </h5>
-            <h5>Link: </h5>
-          </div>
+          {/* {data.map((el) => {
+            console.log(el);
+            return (
+              <div className="api-detail">
+                <p>API: {el.API}</p>
+                <p>Description: {el.Description}</p>
+                <h5>Auth: {el.Auth}</h5>
+                <h5>Category: {el.Category}</h5>
+                <h5>Cors: {el.CORS}</h5>
+                <h5>Https: {el.HTTPS}</h5>
+                <h5>Link: {el.Link}</h5>
+              </div>
+            );
+          })} */}
         </div>
       </div>
     );
